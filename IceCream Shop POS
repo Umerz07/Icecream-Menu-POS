@@ -1,0 +1,83 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class icecream
+{
+    private:
+    string flavour;
+    int numscoop;
+    bool vanilawaffer;
+    
+    public:
+    icecream()
+    {
+        flavour;
+        numscoop=0;
+        vanilawaffer=false;
+    }
+    void chooseflavour()
+    {
+        cout<<"Availabe flavour: Chocolate, Vanilla, stawberry, tuttiruiti, mango, almond , coffee"<<endl;
+        cout<<"Enter the your flavour:";
+        cin>>flavour;
+    }
+    
+    void choosescope()
+    {
+        cout<<"Enter the number of scope: (2 or 3):"<<endl;
+        cin>>numscoop;
+        
+        if(numscoop>3)
+        {
+            cout<<"Invalid Input"<<endl;
+            exit(1);
+        }
+    }
+    void addvanillawaffer()
+    {
+        char choice;
+        cout<<"do yo want to add wafles: (y/n)";
+        cin>>choice;
+        
+        if(choice == 'Y' || choice == 'y')
+        {
+            vanilawaffer=true;
+        }
+    }
+    void calculateprice()
+    {
+        int price=0;
+        
+        if(flavour=="Chocolate")
+        {
+            if(numscoop==2)
+            {
+                price=120;
+            }
+            else
+            {
+                price=180;
+            }
+            
+        }
+            else
+            {
+                price=numscoop*100;
+            }
+        
+        
+        cout << "Flavor: " << flavour <<endl;
+        cout << "Number of scoops: " << numscoop <<endl;
+        cout << "Vanilla wafer: " << (vanilawaffer ? "Yes" : "No") <<endl;
+        cout << "Total price: Rs " << price <<endl;
+    }
+};
+int main()
+{
+    icecream i;
+    i.chooseflavour();
+    i.choosescope();
+    i.addvanillawaffer();
+    i.calculateprice();
+    
+}
